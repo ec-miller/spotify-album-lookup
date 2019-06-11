@@ -1,0 +1,21 @@
+.search {
+  background-color: lightblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 0 50px 0;
+  width: 500px;
+  justify-content: flex-start;
+}
+
+.search-icon {
+  padding: 0 10px 0 10px;
+}
+
+.search-input {
+  flex-basis: 500px;
+}
+
+.search-button {
+  margin: 10px 10px 10px 10px !important;
+}
