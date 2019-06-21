@@ -1,7 +1,7 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Search from './search/Search.js';
+import MusicSummary from './musicSummary/MusicSummary';
 
 function App() {
   return (
@@ -10,6 +10,7 @@ function App() {
         <h1>Spotify vs Apple Music</h1>
       </header>
       <Search />
+      <MusicSummary />
     </div>
   );
 }
