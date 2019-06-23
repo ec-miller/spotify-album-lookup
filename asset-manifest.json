@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/spotify-album-lookup/static/css/main.6a3c525c.chunk.css",
+    "main.js": "/spotify-album-lookup/static/js/main.54294c40.chunk.js",
+    "main.js.map": "/spotify-album-lookup/static/js/main.54294c40.chunk.js.map",
+    "runtime~main.js": "/spotify-album-lookup/static/js/runtime~main.c073bb44.js",
+    "runtime~main.js.map": "/spotify-album-lookup/static/js/runtime~main.c073bb44.js.map",
+    "static/js/2.6932f60c.chunk.js": "/spotify-album-lookup/static/js/2.6932f60c.chunk.js",
+    "static/js/2.6932f60c.chunk.js.map": "/spotify-album-lookup/static/js/2.6932f60c.chunk.js.map",
+    "index.html": "/spotify-album-lookup/index.html",
+    "precache-manifest.cf32d06c1f871f002e23e29b7d162d1f.js": "/spotify-album-lookup/precache-manifest.cf32d06c1f871f002e23e29b7d162d1f.js",
+    "service-worker.js": "/spotify-album-lookup/service-worker.js",
+    "static/css/main.6a3c525c.chunk.css.map": "/spotify-album-lookup/static/css/main.6a3c525c.chunk.css.map"
+  }
+}
