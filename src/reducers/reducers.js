@@ -12,15 +12,20 @@ export const searchedArtists = (searchedArtists = [], action) => {
 export const currentArtist = (currentArtist = '', action) => {
   if (action.type === 'CURRENT_ARTIST') {
     return action.payload;
+  } else if (action.type === 'CURRENT_ARTIST_FAILURE') {
+    return '';
   }
   return currentArtist;
 }
 
 export const spotifyAccessToken = (spotifyAccessToken = '', action) => {
   switch (action.type) {
+    case 'SPOTIFY_TOKEN_LOADING':
+      return 'loading';
     case 'SPOTIFY_TOKEN_SUCCESS':
-      console.log(action.payload)
       return action.payload;
+    case 'SPOTIFY_TOKEN_FAILURE':
+      return false;
     default:
       return spotifyAccessToken
   }
@@ -38,14 +43,16 @@ const cleanSpotifyData = (albums) => {
   return cleanedAlbums;
 }
 
-export const spotifyAlbums = (spotifyAlbums = [], action) => {
+export const spotifyAlbums = (spotifyAlbums = false, action) => {
   switch (action.type) {
     case 'SPOTIFY_ALBUM_SUCCESS':
       const cleanedAlbums = cleanSpotifyData(action.payload)
-      console.log(cleanedAlbums)
-      return cleanedAlbums
+      // console.log(cleanedAlbums)
+      return cleanedAlbums;
+    case 'SPOTIFY_ALBUM_FAILURE':
+      return false;
     default:
-      return spotifyAlbums
+      return spotifyAlbums;
   }
 }
 

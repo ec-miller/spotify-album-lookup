@@ -7,12 +7,13 @@ import './musicSummary.css'
 const MusicSummary = ({searchedArtists, currentArtist, spotifyAlbums}) => {
   return (
     <div className='music-summary'>
-      {currentArtist && spotifyAlbums &&
+      {currentArtist && spotifyAlbums ?
         <MusicDisplay
           currentArtist={currentArtist}
           service='Spotify'
           albums={spotifyAlbums}
         />
+        : <h3 style={{ color: 'white' }}>Sorry, no results :(</h3>
       }
       {searchedArtists.length > 0 &&
         <div style={{ color: 'white' }}>

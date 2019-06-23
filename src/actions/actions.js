@@ -7,12 +7,28 @@ const currentArtist = (artist) => {
   return { type: 'CURRENT_ARTIST', payload: artist}
 }
 
+const currentArtistFailure = () => {
+  return { type: 'CURRENT_ARTIST_FAILURE'}
+}
+
+const spotifyTokenLoading = () => {
+  return { type: 'SPOTIFY_TOKEN_LOADING' }
+}
+
 const spotifyTokenSuccess = (token) => {
   return { type: 'SPOTIFY_TOKEN_SUCCESS', payload: token }
 }
 
 const spotifyAlbumSuccess = (token) => {
   return { type: 'SPOTIFY_ALBUM_SUCCESS', payload: token }
+}
+
+const spotifyTokenFailure = () => {
+  return { type: 'SPOTIFY_TOKEN_FAILURE' }
+}
+
+const spotifyAlbumFailure = () => {
+  return { type: 'SPOTIFY_ALBUM_FAILURE' }
 }
 
 const postFetch = (url = '', postData = {}, headers = {}) => {
@@ -53,6 +69,7 @@ export const searchArtist = artist => {
     const { spotifyAccessToken } = getState()
     let freshToken;
     if (!spotifyAccessToken) {
+      dispatch(spotifyTokenLoading())
       try {
         const spotifyAuthResponse = await spotifyAuth();
         const spotifyAuthData = await spotifyAuthResponse.json();
@@ -61,23 +78,28 @@ export const searchArtist = artist => {
       }
       catch (error) {
         console.log('auth error:', error);
+        dispatch(spotifyTokenFailure())
       }
     }
+    dispatch(logSearch(artist));
     try {
       const spotifySearchResponse = await spotifySearch(freshToken || spotifyAccessToken, artist);
       const spotifySearchData = await spotifySearchResponse.json();
       const spotifyArtistName = spotifySearchData.artists.items[0].name;
       const spotifyArtistId = spotifySearchData.artists.items[0].id;
       if (spotifyArtistId) {
-        dispatch(logSearch(artist));
         dispatch(currentArtist(spotifyArtistName));
         const spotifyAlbumsResponse = await spotifyAlbums(freshToken || spotifyAccessToken, spotifyArtistId);
         const spotifyAlbumsData = await spotifyAlbumsResponse.json();
         dispatch(spotifyAlbumSuccess(spotifyAlbumsData.items));
+      } else {
+        dispatch(currentArtist(''));
       }
     }
     catch (error) {
       console.log('search error:', error);
+      dispatch(spotifyAlbumFailure());
+      dispatch(currentArtistFailure());
     }
   }
 }
