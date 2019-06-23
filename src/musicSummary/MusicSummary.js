@@ -2,9 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import MusicDisplay from './MusicDisplay';
 
+import './musicSummary.css'
+
 const MusicSummary = ({searchedArtists, currentArtist, spotifyAlbums}) => {
   return (
-    <div style={{ width: 700 }}>
+    <div className='music-summary'>
       {currentArtist && spotifyAlbums &&
         <MusicDisplay
           currentArtist={currentArtist}

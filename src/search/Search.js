@@ -28,7 +28,7 @@ const Search = ( {searchArtist }) => {
         className="search-button"
         variant="outlined"
         onClick={ () => searchArtist(search) }
-      >Get Data</Button>
+      >Find Albums</Button>
     </div>
   )
 }

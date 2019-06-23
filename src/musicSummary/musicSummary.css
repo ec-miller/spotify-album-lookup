@@ -1,0 +1,21 @@
+.music-summary {
+  width: 300px;
+}
+
+@media screen and (min-width: 321px) {
+  .music-summary {
+    width: 350px;
+  }
+}
+
+@media screen and (min-width: 376px) {
+  .music-summary {
+    width: 400px;
+  }
+}
+
+@media screen and (min-width: 420px) {
+  .music-summary {
+    width: 700px;
+  }
+}

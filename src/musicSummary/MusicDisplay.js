@@ -6,6 +6,8 @@ import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Divider from '@material-ui/core/Divider';
 
+import './musicDisplay.css'
+
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
@@ -50,8 +52,8 @@ const MusicDisplay = ({ currentArtist, service, albums }) => {
                   <div style={{ flexBasis: 280, display: 'flex', justifyContent: 'flex-start' }}>
                     <Typography variant='h6'>{album.name}</Typography>
                   </div>
-                  <Typography variant='h6'>{`${album.total_tracks} Tracks`}</Typography>
-                  <Typography variant='h6'>{album.release_date.substring(0, 4)}</Typography>
+                  <Typography variant='h6' className='music-display__tracks'>{`${album.total_tracks} Tracks`}</Typography>
+                  <Typography variant='h6' className='music-display__date'>{album.release_date.substring(0, 4)}</Typography>
                 </div>
               </div>
               <Divider variant="middle" />

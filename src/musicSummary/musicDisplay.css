@@ -1,0 +1,17 @@
+.music-display__tracks {
+  display: none;
+}
+
+.music-display__date {
+  display: none;
+}
+
+@media screen and (min-width: 420px) {
+  .music-display__tracks {
+    display: block;
+  }
+
+  .music-display__date {
+    display: block;
+  }
+}

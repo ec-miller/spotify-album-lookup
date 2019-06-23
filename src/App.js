@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Spotify vs Apple Music</h1>
+        <h1>Spotify Album Lookup</h1>
       </header>
       <Search />
       <MusicSummary />
