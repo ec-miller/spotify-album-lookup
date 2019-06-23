@@ -9,6 +9,13 @@ export const searchedArtists = (searchedArtists = [], action) => {
   return searchedArtists;
 }
 
+export const showMusicSummary = (showMusicSummary = false, action) => {
+  if (action.type === 'SHOW_MUSIC_SUMMARY') {
+    return action.payload;
+  }
+  return showMusicSummary;
+}
+
 export const currentArtist = (currentArtist = '', action) => {
   if (action.type === 'CURRENT_ARTIST') {
     return action.payload;
@@ -56,4 +63,4 @@ export const spotifyAlbums = (spotifyAlbums = false, action) => {
   }
 }
 
-export default combineReducers({ searchedArtists, spotifyAccessToken, spotifyAlbums, currentArtist });
+export default combineReducers({ searchedArtists, showMusicSummary, spotifyAccessToken, spotifyAlbums, currentArtist });

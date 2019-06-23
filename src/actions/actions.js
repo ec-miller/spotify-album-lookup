@@ -3,6 +3,10 @@ const logSearch = (artist) => {
   return { type: 'LOG_SEARCH', payload: artist }
 }
 
+const showMusicSummary = (show) => {
+  return { type: 'SHOW_MUSIC_SUMMARY', payload: show }
+}
+
 const currentArtist = (artist) => {
   return { type: 'CURRENT_ARTIST', payload: artist}
 }
@@ -66,6 +70,7 @@ const spotifyAlbums = (spotifyAccessToken, artistId) => {
 
 export const searchArtist = artist => {
   return async (dispatch, getState) => {
+    dispatch(showMusicSummary(false));
     const { spotifyAccessToken } = getState()
     let freshToken;
     if (!spotifyAccessToken) {
@@ -88,18 +93,21 @@ export const searchArtist = artist => {
       const spotifyArtistName = spotifySearchData.artists.items[0].name;
       const spotifyArtistId = spotifySearchData.artists.items[0].id;
       if (spotifyArtistId) {
-        dispatch(currentArtist(spotifyArtistName));
         const spotifyAlbumsResponse = await spotifyAlbums(freshToken || spotifyAccessToken, spotifyArtistId);
         const spotifyAlbumsData = await spotifyAlbumsResponse.json();
+        dispatch(currentArtist(spotifyArtistName));
         dispatch(spotifyAlbumSuccess(spotifyAlbumsData.items));
+        dispatch(showMusicSummary(true));
       } else {
         dispatch(currentArtist(''));
+        dispatch(showMusicSummary(true));
       }
     }
     catch (error) {
       console.log('search error:', error);
       dispatch(spotifyAlbumFailure());
       dispatch(currentArtistFailure());
+      dispatch(showMusicSummary(true));
     }
   }
 }
