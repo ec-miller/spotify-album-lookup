@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "7ed5d63097aac676b14a8f68579973d8",
+    "revision": "381c9d89c10c884db2d7b0a3b5003e96",
     "url": "/spotify-album-lookup/index.html"
   },
   {
-    "revision": "da6ca7dbca1957c9929b",
+    "revision": "c786fe651f8ff05a3bba",
     "url": "/spotify-album-lookup/static/css/main.6a3c525c.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/spotify-album-lookup/static/js/2.14e6c3e3.chunk.js"
   },
   {
-    "revision": "da6ca7dbca1957c9929b",
-    "url": "/spotify-album-lookup/static/js/main.00d46268.chunk.js"
+    "revision": "c786fe651f8ff05a3bba",
+    "url": "/spotify-album-lookup/static/js/main.f10d0d98.chunk.js"
   },
   {
     "revision": "ec2d9c9d070648411d12",
